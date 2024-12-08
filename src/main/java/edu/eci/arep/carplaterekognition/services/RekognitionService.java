@@ -7,6 +7,7 @@ import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.*;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -22,11 +23,11 @@ public class RekognitionService {
                 .build();
     }
 
-    public static Hashtable<String,String> getLabelsfromImage(String image) {
+    public static Hashtable<String,List<String>> getLabelsfromImage(String image) {
         credentials = AwsSessionCredentials.create(CredentialConstants.AWS_ACCESS_KEY_ID, CredentialConstants.AWS_SECRET_ACCESS_KEY,CredentialConstants.SESSION_TOKEN);
         region = Region.US_EAST_1;
         run();
-        Hashtable<String,String> labelMap = new Hashtable<>();
+        Hashtable<String,List<String>> labelMap = new Hashtable<>();
         try {
             S3Object s3Object = S3Object.builder()
                     .bucket(CredentialConstants.BUCKET)
@@ -45,9 +46,13 @@ public class RekognitionService {
             List<TextDetection> textCollection = textResponse.textDetections();
             System.out.println("Detected lines and words");
             for (TextDetection text: textCollection) {
+                List<String> textAndConfidence = new ArrayList<>();
                 System.out.println("Detected: " + text.detectedText());
+                textAndConfidence.add(text.detectedText());
                 System.out.println("Confidence: " + text.confidence().toString());
+                textAndConfidence.add(text.confidence().toString());
                 System.out.println("Id : " + text.id());
+                labelMap.put(String.valueOf(text.id()),textAndConfidence);
                 System.out.println("Parent Id: " + text.parentId());
                 System.out.println("Type: " + text.type());
                 System.out.println();
