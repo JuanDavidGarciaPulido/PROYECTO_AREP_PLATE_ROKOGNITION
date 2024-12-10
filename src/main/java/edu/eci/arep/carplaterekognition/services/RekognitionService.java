@@ -1,6 +1,8 @@
 package edu.eci.arep.carplaterekognition.services;
 
+import com.google.gson.Gson;
 import edu.eci.arep.carplaterekognition.constants.CredentialConstants;
+import edu.eci.arep.carplaterekognition.models.CarImageProfiles;
 import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
@@ -21,6 +23,10 @@ public class RekognitionService {
                 .region(region)
                 .credentialsProvider(StaticCredentialsProvider.create(credentials))
                 .build();
+    }
+
+    public static boolean isCarPlate(String reckognizedText){
+        return reckognizedText.contains("-") && reckognizedText.length() == 7;
     }
 
     public static Hashtable<String,List<String>> getLabelsfromImage(String image) {
@@ -52,7 +58,16 @@ public class RekognitionService {
                 System.out.println("Confidence: " + text.confidence().toString());
                 textAndConfidence.add(text.confidence().toString());
                 System.out.println("Id : " + text.id());
-                labelMap.put(String.valueOf(text.id()),textAndConfidence);
+                if (isCarPlate(text.detectedText())) {
+                    labelMap.put(String.valueOf(text.id()), textAndConfidence);
+                    CarImageProfiles carImageProfiles = new CarImageProfiles();
+                    carImageProfiles.setImageUrl(image);
+                    carImageProfiles.setPlate(text.detectedText());
+                    carImageProfiles.setDate("2024-09-13");
+                    carImageProfiles.setDescription("descripcion de prueba");
+                    carImageProfiles.setStealed(false);
+                    System.out.println(new Gson().toJson(carImageProfiles));
+                }
                 System.out.println("Parent Id: " + text.parentId());
                 System.out.println("Type: " + text.type());
                 System.out.println();

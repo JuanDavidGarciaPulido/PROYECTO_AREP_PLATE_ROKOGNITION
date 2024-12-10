@@ -13,6 +13,7 @@ public class CarPlateCheckController {
     @PostMapping()
     public ResponseEntity<?> carPlate(@RequestBody String imageName){
         if (!RekognitionService.getLabelsfromImage(imageName).keySet().isEmpty()){
+            System.out.println(RekognitionService.getLabelsfromImage(imageName).keySet());
             return new ResponseEntity<>(true, HttpStatus.OK);
         }
         else {
