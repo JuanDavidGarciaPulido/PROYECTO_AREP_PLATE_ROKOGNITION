@@ -26,7 +26,7 @@ public class RekognitionService {
     }
 
     public static boolean isCarPlate(String reckognizedText){
-        return reckognizedText.contains("-") && reckognizedText.length() == 7;
+        return (reckognizedText.contains("-") && reckognizedText.length() == 7) || reckognizedText.length() == 6;
     }
 
     public static List<CarImageProfiles> getLabelsfromImage(String image) {
