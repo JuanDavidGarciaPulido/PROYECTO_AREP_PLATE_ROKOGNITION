@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/login")
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class LoginController {
 
     @Autowired

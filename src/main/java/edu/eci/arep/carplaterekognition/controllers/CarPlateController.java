@@ -11,7 +11,7 @@ import edu.eci.arep.carplaterekognition.services.RekognitionService;
 
 @RestController
 @RequestMapping("/cars")
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class CarPlateController {
 
     @Autowired
