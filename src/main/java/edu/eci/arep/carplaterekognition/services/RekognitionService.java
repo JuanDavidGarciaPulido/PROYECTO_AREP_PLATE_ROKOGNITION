@@ -29,11 +29,11 @@ public class RekognitionService {
         return reckognizedText.contains("-") && reckognizedText.length() == 7;
     }
 
-    public static Hashtable<String,List<String>> getLabelsfromImage(String image) {
+    public static List<CarImageProfiles> getLabelsfromImage(String image) {
         credentials = AwsSessionCredentials.create(CredentialConstants.AWS_ACCESS_KEY_ID, CredentialConstants.AWS_SECRET_ACCESS_KEY,CredentialConstants.SESSION_TOKEN);
         region = Region.US_EAST_1;
         run();
-        Hashtable<String,List<String>> labelMap = new Hashtable<>();
+       List<CarImageProfiles> carProfilesList = new ArrayList<>();
         try {
             S3Object s3Object = S3Object.builder()
                     .bucket(CredentialConstants.BUCKET)
@@ -59,13 +59,13 @@ public class RekognitionService {
                 textAndConfidence.add(text.confidence().toString());
                 System.out.println("Id : " + text.id());
                 if (isCarPlate(text.detectedText())) {
-                    labelMap.put(String.valueOf(text.id()), textAndConfidence);
                     CarImageProfiles carImageProfiles = new CarImageProfiles();
                     carImageProfiles.setImageUrl(image);
                     carImageProfiles.setPlate(text.detectedText());
                     carImageProfiles.setDate("2024-09-13");
                     carImageProfiles.setDescription("descripcion de prueba");
                     carImageProfiles.setStealed(false);
+                    carProfilesList.add(carImageProfiles);
                     System.out.println(new Gson().toJson(carImageProfiles));
                 }
                 System.out.println("Parent Id: " + text.parentId());
@@ -77,6 +77,6 @@ public class RekognitionService {
             System.out.println(e.getMessage());
         }
         rekClient.close();
-        return labelMap;
+        return carProfilesList;
     }
 }
