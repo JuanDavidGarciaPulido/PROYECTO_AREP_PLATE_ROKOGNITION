@@ -2,8 +2,8 @@ package edu.eci.arep.carplaterekognition.constants;
 
 public final class CredentialConstants {
     public static final String BUCKET = "awscarplaterecokgnition";
-    public static final String AWS_ACCESS_KEY_ID= "ASIATLNAOGXZOXJ3C22X";
-    public static final String AWS_SECRET_ACCESS_KEY="57ZL+sGeUp6Hri2raso9jVPLly2m0dl06RKb+afk";
-    public static final String SESSION_TOKEN = "IQoJb3JpZ2luX2VjEO7//////////wEaCXVzLXdlc3QtMiJHMEUCIGSTz4wesTJ2uIw4wRVU9DDpCu20O+ljGtyNgaKYC2DPAiEA3MpRhCjoGxlvv6OWdWlIqK8tFWTdf0+XY9YWAs+DBLIquwIIp///////////ARAAGgwyMzA2NTQwOTY4ODIiDHCWGAZVEMFI2jrxyCqPAo3dFeaD13dcVRSfM0MBZMqKyKYfGWuEi6sxTwdJpTtjshqSaI0RleGfk4VqhdtEbZQ0qYa83qnqT8+wSykNMuIMnqsyNyKNU4exSrGG9fGIcVnezp5B/T8CbnssuSTRaVTd3yaNWXglw2Kjcb/R5Y06F4/blTkitZNIJPZT5lqgXjXBglNnlJIxlr4Q+ZoexFsUNXr2eoVk7Ul37yRtsr1EMcd0wT0lRY2irGlzxaf3CtQ2AFUWTuDI4zTKMZumEsFD+Eg/v1pF3LTdDO+TU3UXxuOctJa73pa3b10bc/Exx2GJLrPekmiqe9+F9AkcBSjLNA7cpa+KZsnb9hffJhjqGI8F1zgHkmMaNACakpgw57rmugY6nQEDHQzrI2psBamgT2rfd5UPbTCP8iv2Yg/blB+SXnmj/OU+EI5/PDfZqR2F1PZ+6DPsZn4Wbv31+ZEv1QVwfuz2tYMjO6vLUVq8Y61JtCUcytbcAfzQj37xEp7SixQDAfuSPMlpdO1v36MpxH4cBTIlKMLHNdrpwcIphmZhxVKPXF7y3e3/2pFOoHSgl4wlSAX4VeGk3zVPOvV1lvfU";
+    public static final String AWS_ACCESS_KEY_ID= "ASIATLNAOGXZI6FUXZNY";
+    public static final String AWS_SECRET_ACCESS_KEY="R1PY5dKKCGPYPLVbw/+8QAmeXs7PTDWEWwoNWbNy";
+    public static final String SESSION_TOKEN = "IQoJb3JpZ2luX2VjEPj//////////wEaCXVzLXdlc3QtMiJHMEUCIQDhOSZUqgSdNJGYlUOYdvJpzM4ufVRRN++NyCopyphWoAIgP5siqbLx5iXPAICvHzJAlVYwIUZSOZtJVrO3x4hk5CAquwIIsf//////////ARAAGgwyMzA2NTQwOTY4ODIiDMrOcvJS1uLJp5FtXSqPAtk2abYw/lUO/EPqF3gMeEgueQ72YbAxab/yem/6RPsyoeTTe+pv1M7YsBIs6jh7bvN6EwMNlmA+R8p60VHd0Jilb/GAqV5kcakcTu1qJhEArP1cHoGpV89xXiVuXVKUSHTyFt2/TfyDovESGCNVxcVPyu9x310w67MZnduhCvbCmYur3sVYieGL7/I/V2QDzO1h5DacTkm3pXpKUejuRPeT8wKMRzeD8oPz65xwARiaRMeUEbivvd/GJfC86XHlxKEKOcAVv/TN2Mp5GY85NGKRdBXaVbnd8/5rZkIeOSAg3tnzgnegMQQu+g0P3IoYQCUDHJEFRIRgw14CAoehiGt48fLJXu35Riuid4VK/n4wmtbougY6nQHdLrFohvpVZ2soxMi+HsKXxoMJHlODoF3MHBe8aBrn1V69zfvKsWvJ8IqJDPHqQvktacb/WG+z/nEYv3mG2jE2hqwyMRfvKkV42aCPQU/ACh/dY6qRw/bs1S9LBalafAZFrBP/Fy70o/99YfOUpl9ucGXx52RJeNDv5Zni9r9nCUHI3isGqIsvAJ7uLU9rzcXT7OxnDbTsyPSLIqe6";
 }
 
